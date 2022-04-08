@@ -4,6 +4,8 @@ metadata:
   name: replicapool
   namespace: rook-ceph # namespace:cluster
 spec:
+  parameters: 
+    compression_mode: passive
   failureDomain: host
   replicated:
     size: 3
