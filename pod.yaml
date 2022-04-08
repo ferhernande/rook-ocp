@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: rook-ceph
+  name: csirbd-demo-pod
+spec:
+  containers:
+    - name: repo
+      image: ansible.apicdev.os.qa.bi.com.gt:5000/fedora/fedora:35
+      volumeMounts:
+         - name: mypvc
+           mountPath: /repo
+      args:
+       - cat
+      tty: true
+      stdin: true
+  volumes:
+      - name: mypvc
+        persistentVolumeClaim:
+            claimName: rbd-pvc
+            readOnly: false
