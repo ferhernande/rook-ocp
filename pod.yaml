@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
     - name: repo
-      image: ansible.apicdev.os.qa.bi.com.gt:5000/fedora/fedora:35
+      image: <registry>:5000/fedora/fedora:35
       volumeMounts:
          - name: mypvc
            mountPath: /repo
